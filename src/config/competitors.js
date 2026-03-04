@@ -17,11 +17,13 @@ export const POS_COMPETITORS = [
   { name: 'Shopify POS', searchTerms: ['Shopify POS', 'Shopify point of sale'], logo: 'https://www.google.com/s2/favicons?domain=shopify.com&sz=128' },
 ];
 
-// API Configuration - Replace with your own keys
+// API Configuration - Set via environment variables or replace directly
+// For Docker: pass --build-arg EXPO_PUBLIC_CURRENTS_API_KEY=... EXPO_PUBLIC_OPENAI_API_KEY=...
+// For local dev: create a .env file with EXPO_PUBLIC_CURRENTS_API_KEY and EXPO_PUBLIC_OPENAI_API_KEY
 export const API_CONFIG = {
-  // Currents API - 1,000 free requests/day (10x more than NewsAPI)
+  // Currents API - 1,000 free requests/day
   // Get your free API key at: https://currentsapi.services/en
-  CURRENTS_API_KEY: 'YOUR_CURRENTS_API_KEY_HERE',
+  CURRENTS_API_KEY: process.env.EXPO_PUBLIC_CURRENTS_API_KEY || 'YOUR_CURRENTS_API_KEY_HERE',
   // Get from https://platform.openai.com
-  OPENAI_API_KEY: 'YOUR_OPENAI_API_KEY_HERE',
+  OPENAI_API_KEY: process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'YOUR_OPENAI_API_KEY_HERE',
 };

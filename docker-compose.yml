@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        - EXPO_PUBLIC_CURRENTS_API_KEY=${CURRENTS_API_KEY:-}
+        - EXPO_PUBLIC_OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    ports:
+      - "3000:80"
+    restart: unless-stopped
